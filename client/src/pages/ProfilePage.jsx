@@ -39,7 +39,7 @@ const ProfilePage = () => {
             type="file" id="avatar" accept='.png,.jpeg,.jpg' hidden />
             <img src={selectedImage ? URL.createObjectURL(selectedImage) :assets.avatar_icon } 
             alt="" className={`w-12 h-12 ${selectedImage && 'rounded-full'}`} />
-            upload profile picture
+           {authUser.profilePic? 'update' : 'upload'} profile picture
           </label>
           <input onChange={(e)=>setName(e.target.value)} value={name}
           type="text" required placeholder='Your name' className='p-2 border border-gray-500 
@@ -55,7 +55,7 @@ const ProfilePage = () => {
           </button>
         </form>
         <img className={`max-w-44 aspect-square rounded-full mx-10 max-sm:mt-10 ${selectedImage && 'rounded-full'}`}
-        src={assets.logo_icon} alt="" />
+        src={authUser.profilePic ||assets.logo_icon} alt="" />
       </div>
 
     </div>
