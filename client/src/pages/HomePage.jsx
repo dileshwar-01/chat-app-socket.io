@@ -5,8 +5,8 @@ import RightSidebar from '../components/RightSidebar';
 import { ChatContext } from '../../context/ChatContext';
 
 const HomePage = () => {
-    // const [selectedUser,setSelectedUser] = useState(false);
-    const {selectedUser,setSelectedUser} = useContext(ChatContext);
+    
+    const {selectedUser} = useContext(ChatContext);
   return (
     <div className='w-full h-screen sm:px-[15%] sm:py-[5%] '>
      <div className={`backdrop-blur-xl border-2 border-gray-600 rounded-2xl
