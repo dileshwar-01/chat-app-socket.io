@@ -1,6 +1,7 @@
+import toast from "react-hot-toast";
 import { AuthContext } from "./AuthContext";
 
-const { createContext, useState, useContext, useEffect } = require("react");
+import { createContext, useState, useContext, useEffect } from "react";
 
 
 export const ChatContext = createContext();
@@ -80,7 +81,7 @@ export const ChatProvider =  ({children})=>{
 
     const value={
         messages,users,selectedUser,getUsers,setMessages,sendMessage,
-        setSelectedUser,unseenMessages,setUnseenMessages
+        setSelectedUser,unseenMessages,setUnseenMessages,getMessages
     }
 
     return(

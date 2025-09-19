@@ -95,6 +95,7 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   },[])
 
+
   const value = {
     axios,authUser,onlineUsers,socket,login, logout , updateProfile
   };
