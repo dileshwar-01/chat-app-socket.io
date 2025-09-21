@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import assets from '../assets/assets'
 import { AuthContext } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
   const [currState,setCurrState] = useState("Sign up");
@@ -9,12 +10,20 @@ const LoginPage = () => {
   const[password,setPassword] = useState("");
   const[bio,setBio] = useState("");
   const[isDataSubmitted,setIsDataSubmitted] = useState(false);
+  const [checked,SetChecked] = useState(false);
 
   const {login} = useContext(AuthContext);
 
-
+  useEffect(()=>{
+    console.log("checked: ",checked);
+    
+  },[checked])
   const onSubmitHandler=(e)=>{
     e.preventDefault();
+    if(!checked){
+      toast.error("Agree to the terms first");
+      return;
+    }
     if(currState=='Sign up' && !isDataSubmitted){
       setIsDataSubmitted(true);
       return;
@@ -75,7 +84,7 @@ const LoginPage = () => {
             </button>
 
             <div className='flex items-center gap-2 text-sm text-gray-500'>
-              <input type="checkbox"  />
+              <input type="checkbox" onChange={()=>SetChecked(!checked)}  />
               <p>Agree to the terms of use & privacy policy.</p>
             </div>
 
